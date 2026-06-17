@@ -1,0 +1,125 @@
+[
+  {
+    "name": "Input Prompts Pixel 1-Bit",
+    "version": "1.1",
+    "category": "asset",
+    "asset_paths": [
+      "Assets/Art/UI/Input"
+    ],
+    "source_url": "https://www.kenney.nl/",
+    "license_type": "Creative Commons Zero v1.0 Universal",
+    "spdx": "CC0-1.0",
+    "copyright": "Kenney Vleugels (Kenney.nl)",
+    "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_text_path": "third-party-licenses/kenney-input-prompts-pixel-1bit-cc0.txt"
+  },
+  {
+    "name": "Interface Sounds",
+    "version": "1.0",
+    "category": "asset",
+    "asset_paths": [
+      "Assets/Art/UI/Audio"
+    ],
+    "source_url": "https://www.kenney.nl/",
+    "license_type": "Creative Commons Zero v1.0 Universal",
+    "spdx": "CC0-1.0",
+    "copyright": "Kenney Vleugels (Kenney.nl)",
+    "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_text_path": "third-party-licenses/kenney-interface-sounds-cc0.txt"
+  },
+  {
+    "name": "RPG Audio",
+    "version": "unspecified",
+    "category": "asset",
+    "asset_paths": [
+      "Assets/Art/Characters/Audio"
+    ],
+    "source_url": "https://www.kenney.nl/",
+    "license_type": "Creative Commons Zero v1.0 Universal",
+    "spdx": "CC0-1.0",
+    "copyright": "Kenney Vleugels (Kenney.nl)",
+    "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_text_path": "third-party-licenses/kenney-rpg-audio-cc0.txt"
+  },
+  {
+    "name": "Tiny Dungeon",
+    "version": "1.0",
+    "category": "asset",
+    "asset_paths": [
+      "Assets/Art/Characters/Tiles"
+    ],
+    "source_url": "https://www.kenney.nl/",
+    "license_type": "Creative Commons Zero v1.0 Universal",
+    "spdx": "CC0-1.0",
+    "copyright": "Kenney Vleugels (Kenney.nl)",
+    "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_text_path": "third-party-licenses/kenney-tiny-dungeon-cc0.txt"
+  },
+  {
+    "name": "UI Pack - Pixel Adventure",
+    "version": "2.0",
+    "category": "asset",
+    "asset_paths": [
+      "Assets/Art/UI"
+    ],
+    "source_url": "https://www.kenney.nl/",
+    "license_type": "Creative Commons Zero v1.0 Universal",
+    "spdx": "CC0-1.0",
+    "copyright": "Kenney Vleugels (Kenney.nl)",
+    "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_text_path": "third-party-licenses/kenney-ui-pack-pixel-adventure-cc0.txt"
+  },
+  {
+    "name": "Fusion Pixel 12px",
+    "version": "12px proportional zh_hans",
+    "category": "font",
+    "asset_paths": [
+      "Assets/Art/Font/fusion-pixel-12px-proportional-zh_hans.ttf"
+    ],
+    "source_url": "https://github.com/TakWolf/fusion-pixel-font",
+    "license_type": "SIL Open Font License 1.1",
+    "spdx": "OFL-1.1",
+    "copyright": "TakWolf",
+    "license_text_link": "https://openfontlicense.org",
+    "license_text_path": "third-party-licenses/OFL.txt"
+  },
+  {
+    "name": "Ark Pixel",
+    "version": "unspecified",
+    "category": "font",
+    "asset_paths": [],
+    "usage_notes": "Only license text is bundled in repository at third-party-licenses/LICENSE/ark-pixel.txt.",
+    "source_url": "https://github.com/TakWolf/ark-pixel-font",
+    "license_type": "SIL Open Font License 1.1",
+    "spdx": "OFL-1.1",
+    "copyright": "TakWolf",
+    "license_text_link": "https://openfontlicense.org",
+    "license_text_path": "third-party-licenses/LICENSE/ark-pixel.txt"
+  },
+  {
+    "name": "Cubic 11",
+    "version": "unspecified",
+    "category": "font",
+    "asset_paths": [],
+    "usage_notes": "Only license text is bundled in repository at third-party-licenses/LICENSE/cubic-11.txt.",
+    "source_url": "https://github.com/ACh-K/Cubic-11",
+    "license_type": "Custom font license + SIL Open Font License 1.1 text",
+    "spdx": "NOASSERTION",
+    "copyright": "M+ Fonts Project, COZ",
+    "license_text_link": "https://scripts.sil.org/OFL",
+    "license_text_path": "third-party-licenses/LICENSE/cubic-11.txt"
+  },
+  {
+    "name": "Galmuri",
+    "version": "unspecified",
+    "category": "font",
+    "asset_paths": [],
+    "usage_notes": "Only license text is bundled in repository at third-party-licenses/LICENSE/galmuri.txt.",
+    "source_url": "https://github.com/quiple/galmuri",
+    "license_type": "SIL Open Font License 1.1",
+    "spdx": "OFL-1.1",
+    "copyright": "Lee Minseo",
+    "license_text_link": "https://openfontlicense.org",
+    "license_text_path": "third-party-licenses/LICENSE/galmuri.txt"
+  }
+]

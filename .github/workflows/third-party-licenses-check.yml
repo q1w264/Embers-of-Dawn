@@ -1,0 +1,25 @@
+name: Third-party licenses check
+
+on:
+  pull_request:
+  release:
+    types: [published, prereleased]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-third-party-licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Verify license inventory
+        run: python3 tools/third_party_licenses.py --check
