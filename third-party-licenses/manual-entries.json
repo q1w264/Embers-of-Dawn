@@ -11,7 +11,7 @@
     "spdx": "CC0-1.0",
     "copyright": "Kenney Vleugels (Kenney.nl)",
     "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "license_text_path": "third-party-licenses/License 5.txt"
+    "license_text_path": "third-party-licenses/kenney-input-prompts-pixel-1bit-cc0.txt"
   },
   {
     "name": "Interface Sounds",
@@ -25,7 +25,7 @@
     "spdx": "CC0-1.0",
     "copyright": "Kenney Vleugels (Kenney.nl)",
     "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "license_text_path": "third-party-licenses/License 3.txt"
+    "license_text_path": "third-party-licenses/kenney-interface-sounds-cc0.txt"
   },
   {
     "name": "RPG Audio",
@@ -39,7 +39,7 @@
     "spdx": "CC0-1.0",
     "copyright": "Kenney Vleugels (Kenney.nl)",
     "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "license_text_path": "third-party-licenses/License 4.txt"
+    "license_text_path": "third-party-licenses/kenney-rpg-audio-cc0.txt"
   },
   {
     "name": "Tiny Dungeon",
@@ -53,7 +53,7 @@
     "spdx": "CC0-1.0",
     "copyright": "Kenney Vleugels (Kenney.nl)",
     "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "license_text_path": "third-party-licenses/License.txt"
+    "license_text_path": "third-party-licenses/kenney-tiny-dungeon-cc0.txt"
   },
   {
     "name": "UI Pack - Pixel Adventure",
@@ -67,7 +67,7 @@
     "spdx": "CC0-1.0",
     "copyright": "Kenney Vleugels (Kenney.nl)",
     "license_text_link": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "license_text_path": "third-party-licenses/License 2.txt"
+    "license_text_path": "third-party-licenses/kenney-ui-pack-pixel-adventure-cc0.txt"
   },
   {
     "name": "Fusion Pixel 12px",
@@ -87,9 +87,8 @@
     "name": "Ark Pixel",
     "version": "unspecified",
     "category": "font",
-    "asset_paths": [
-      "third-party-licenses/LICENSE/ark-pixel.txt"
-    ],
+    "asset_paths": [],
+    "usage_notes": "Only license text is bundled in repository at third-party-licenses/LICENSE/ark-pixel.txt.",
     "source_url": "https://github.com/TakWolf/ark-pixel-font",
     "license_type": "SIL Open Font License 1.1",
     "spdx": "OFL-1.1",
@@ -101,10 +100,9 @@
     "name": "Cubic 11",
     "version": "unspecified",
     "category": "font",
-    "asset_paths": [
-      "third-party-licenses/LICENSE/cubic-11.txt"
-    ],
-    "source_url": "NOASSERTION",
+    "asset_paths": [],
+    "usage_notes": "Only license text is bundled in repository at third-party-licenses/LICENSE/cubic-11.txt.",
+    "source_url": "https://github.com/ACh-K/Cubic-11",
     "license_type": "Custom font license + SIL Open Font License 1.1 text",
     "spdx": "NOASSERTION",
     "copyright": "M+ Fonts Project, COZ",
@@ -115,9 +113,8 @@
     "name": "Galmuri",
     "version": "unspecified",
     "category": "font",
-    "asset_paths": [
-      "third-party-licenses/LICENSE/galmuri.txt"
-    ],
+    "asset_paths": [],
+    "usage_notes": "Only license text is bundled in repository at third-party-licenses/LICENSE/galmuri.txt.",
     "source_url": "https://github.com/quiple/galmuri",
     "license_type": "SIL Open Font License 1.1",
     "spdx": "OFL-1.1",

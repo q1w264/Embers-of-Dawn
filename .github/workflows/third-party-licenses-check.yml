@@ -6,6 +6,9 @@ on:
     types: [published, prereleased]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   verify-third-party-licenses:
     runs-on: ubuntu-latest

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -12,6 +13,8 @@ MANUAL_FILE = ROOT / "third-party-licenses" / "manual-entries.json"
 OUTPUT_FILE = ROOT / "THIRD_PARTY_LICENSES.md"
 
 UNITY_TERMS_URL = "https://unity.com/legal/terms-of-service/software"
+LICENSES_REQUIRING_BUNDLED_TEXT = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "OFL-1.1"}
+COPYLEFT_LICENSE_PATTERN = re.compile(r"\b(?:AGPL|LGPL|GPL|MPL)-", re.IGNORECASE)
 
 
 def _read_json(path: Path):
@@ -48,24 +51,29 @@ def load_manual_entries():
     entries = _read_json(MANUAL_FILE)
     normalized = []
     for entry in entries:
-        for asset_path in entry.get("asset_paths", []):
+        asset_paths = entry.get("asset_paths", [])
+        usage_notes = entry.get("usage_notes")
+        for asset_path in asset_paths:
             if not (ROOT / asset_path).exists():
                 raise FileNotFoundError(f"Missing declared asset path: {asset_path}")
         license_text_path = entry.get("license_text_path")
         if license_text_path and not (ROOT / license_text_path).exists():
             raise FileNotFoundError(f"Missing declared license text path: {license_text_path}")
+        if not asset_paths and not usage_notes:
+            raise ValueError(f"Entry '{entry['name']}' must provide asset_paths or usage_notes.")
         normalized.append(
             {
                 "name": entry["name"],
                 "version": entry["version"],
                 "category": entry["category"],
-                "asset_paths": entry.get("asset_paths", []),
+                "asset_paths": asset_paths,
                 "source_url": entry["source_url"],
                 "license_type": entry["license_type"],
                 "spdx": entry["spdx"],
                 "copyright": entry["copyright"],
                 "license_text_link": entry["license_text_link"],
                 "license_text_path": license_text_path,
+                "usage_notes": usage_notes,
             }
         )
     return sorted(normalized, key=lambda item: item["name"].lower())
@@ -116,23 +124,23 @@ def render_document() -> str:
             item["copyright"],
             _md_link("link", item["license_text_link"]),
             item["license_text_path"] or "NOASSERTION",
+            item["usage_notes"] or "-",
         ]
         for item in manual
     ]
 
-    include_text_spdx = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "OFL-1.1"}
     include_text_rows = [
         f"- {item['name']} ({item['spdx']}): `{item['license_text_path']}`"
         for item in manual
-        if item["spdx"] in include_text_spdx and item.get("license_text_path")
+        if item["spdx"] in LICENSES_REQUIRING_BUNDLED_TEXT and item.get("license_text_path")
     ]
     if not include_text_rows:
         include_text_rows = ["- No dependency in the current inventory requires bundled license text from this rule set."]
 
     copyleft_rows = []
     for item in unity + manual:
-        spdx = item["spdx"].upper()
-        if "GPL" in spdx or "LGPL" in spdx or "MPL" in spdx:
+        spdx = item["spdx"]
+        if spdx != "NOASSERTION" and COPYLEFT_LICENSE_PATTERN.search(spdx):
             copyleft_rows.append(
                 f"- {item['name']} ({item['spdx']}): provide source/modification notices and satisfy corresponding distribution conditions."
             )
@@ -165,6 +173,7 @@ def render_document() -> str:
                 "Copyright",
                 "License Text",
                 "Bundled License Path",
+                "Usage Notes",
             ],
             manual_rows,
         ),
