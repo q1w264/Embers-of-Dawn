@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,13 +9,12 @@ namespace UI
         public AudioSource audioSource;
         public AudioClip clickSound; // 比如 Kenney 的点击音效
         
-        private void Start()
+        private void Awake()
         {
             // 1. 获取 UIDocument 组件
             var uiDocument = GetComponent<UIDocument>();
             if (uiDocument == null)
             {
-                Debug.LogError($"[{gameObject.name}] 找不到 UIDocument 组件！请确保脚本挂在同一个物体上。");
                 return;
             }
 
@@ -27,10 +27,11 @@ namespace UI
             // 4. 遍历并绑定点击声音
             foreach (var btn in allButtons)
             {
-                // 使用更灵敏的 PointerDownEvent（按下瞬间发声，体验最好）
                 btn.RegisterCallback<ClickEvent>(PlayClickAudio);
+                btn.RegisterCallback<NavigationSubmitEvent>(PlayClickAudio);
             }
         }
+        
 
         private void OnDisable()
         {
@@ -45,11 +46,20 @@ namespace UI
             foreach (var btn in allButtons)
             {
                 btn.UnregisterCallback<ClickEvent>(PlayClickAudio);
+                btn.UnregisterCallback<NavigationSubmitEvent>(PlayClickAudio);
             }
         }
 
         // 播放声音的监听回调
         private void PlayClickAudio(ClickEvent evt)
+        {
+            if (audioSource != null && clickSound != null)
+            {
+                audioSource.PlayOneShot(clickSound);
+            }
+        }
+
+        private void PlayClickAudio(NavigationSubmitEvent evt)
         {
             if (audioSource != null && clickSound != null)
             {
