@@ -1,6 +1,6 @@
 .game-title {
-    -unity-font-definition: url("project://database/Assets/Art/Font/fusion-pixel-12px-proportional-zh_hans.ttf?fileID=12800000&guid=752236bd266a449b584b9b281e06b877&type=3#fusion-pixel-12px-proportional-zh_hans");
-    font-size: 154px;
+    -unity-font-definition: url("project://database/Assets/Art/Font/Jersey10-Regular.ttf?fileID=12800000&guid=c295f7c2b5dcb4e65928cb20cd696364&type=3#Jersey10-Regular");
+    font-size: 225px;
     -unity-text-align: upper-center;
     -unity-font-style: normal;
     color: rgb(26, 26, 26);

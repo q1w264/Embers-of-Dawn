@@ -1,17 +1,16 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class MainMenuController : MonoBehaviour
     {
-        public PlayerInput playerInput;
-        
+        [SerializeField] private string startButtonTargetScene; // 通过 Inspector 关联主场景资源
+        [SerializeField] private string settingButtonTargetScene;
+
         private void Start()
         {
-            if (playerInput != null)
-                OnMenu();
             var uiDocument = GetComponent<UIDocument>();
             if (uiDocument == null)
             {
@@ -21,20 +20,41 @@ namespace UI
             // 2. 获取根节点
             var root = uiDocument.rootVisualElement;
             if (root == null) return;
-            
+
             var mainButton = root.Q<Button>("start-button");
+            var settingsButton = root.Q<Button>("settings-button");
+            var exitButton = root.Q<Button>("exit-button");
             mainButton?.Focus();
-            
+            if (mainButton != null && startButtonTargetScene != "") mainButton.clicked += MainButtonClick;
+            if (settingsButton != null && settingButtonTargetScene != "") settingsButton.clicked += SettingButtonClick;
+            if (exitButton != null) exitButton.clicked += ExitGame;
         }
 
-        private void OnMenu()
+        private void LoadNextScene(string sceneName)
         {
-            playerInput.SwitchCurrentActionMap("UI");
+            SceneManager.LoadScene(sceneName);
         }
 
-        private void OnGameplay()
+        private void MainButtonClick()
         {
-            playerInput.SwitchCurrentActionMap("Gameplay");
+            LoadNextScene(startButtonTargetScene);
+        }
+
+        private void SettingButtonClick()
+        {
+            LoadNextScene(settingButtonTargetScene);
+        }
+
+        private void ExitGame()
+        {
+            // 如果当前是在 Unity 编辑器中运行
+#if UNITY_EDITOR
+            // 相当于手动点掉编辑器顶部的 "Play" 播放按钮
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            // 如果是打包出来的正式独立游戏（Windows / Mac / Android 等）
+            Application.Quit();
+#endif
         }
     }
 }

@@ -1,13 +1,13 @@
 .game-button {
     width: 40%;
-    height: 20%;
+    height: 12%;
     align-self: center;
     -unity-text-auto-size: none;
-    background-image: url("project://database/Assets/Art/UI/Tile/tile_0071.png?fileID=21300000&guid=d280f815f5da64bc7be7a80ff566c862&type=3#tile_0071");
-    -unity-slice-left: 6;
-    -unity-slice-top: 6;
-    -unity-slice-right: 6;
-    -unity-slice-bottom: 6;
+    background-image: url("project://database/Assets/Art/UI/Tile/tile_0011.png?fileID=21300000&guid=7fa34091b40cb4b02948614a6d388be0&type=3#tile_0011");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
     -unity-slice-scale: 6px;
     -unity-background-scale-mode: stretch-to-fill;
     background-color: rgba(0, 0, 0, 0);
@@ -19,37 +19,64 @@
     border-right-color: rgba(76, 76, 76, 0);
     border-top-color: rgba(76, 76, 76, 0);
     border-bottom-color: rgba(76, 76, 76, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-top: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
 }
 
 .game-button:hover {
     width: 40%;
-    height: 20%;
+    height: 12%;
     align-self: center;
     -unity-text-auto-size: none;
-    background-image: url("project://database/Assets/Art/UI/Tile/tile_0070.png?fileID=21300000&guid=98c07f190da4649e39e10a8ccf91282a&type=3#tile_0070");
-    -unity-slice-left: 6;
-    -unity-slice-top: 6;
-    -unity-slice-right: 6;
-    -unity-slice-bottom: 6;
+    background-image: url("project://database/Assets/Art/UI/Tile/tile_0010.png?fileID=21300000&guid=4355c2e3ad81a4152bc0a1e3ba0be59c&type=3#tile_0010");
+    -unity-slice-left: 5;
+    -unity-slice-top: 5;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 5;
     -unity-slice-scale: 6px;
     -unity-background-scale-mode: stretch-to-fill;
     background-color: rgba(0, 0, 0, 0);
     -unity-font-definition: url("project://database/Assets/Art/Font/fusion-pixel-12px-proportional-zh_hans.ttf?fileID=12800000&guid=752236bd266a449b584b9b281e06b877&type=3#fusion-pixel-12px-proportional-zh_hans");
     font-size: 40px;
     -unity-font-style: normal;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.game-button:focus {
+    width: 40%;
+    height: 12%;
+    align-self: center;
+    -unity-text-auto-size: none;
+    background-image: url("project://database/Assets/Art/UI/Tile/tile_0010.png?fileID=21300000&guid=4355c2e3ad81a4152bc0a1e3ba0be59c&type=3#tile_0010");
+    -unity-slice-left: 5;
+    -unity-slice-top: 5;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 5;
+    -unity-slice-scale: 6px;
+    -unity-background-scale-mode: stretch-to-fill;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-font-definition: url("project://database/Assets/Art/Font/fusion-pixel-12px-proportional-zh_hans.ttf?fileID=12800000&guid=752236bd266a449b584b9b281e06b877&type=3#fusion-pixel-12px-proportional-zh_hans");
+    font-size: 40px;
+    -unity-font-style: normal;
+    color: rgb(0, 0, 0);
 }
 
 .game-button:active {
     width: 40%;
-    height: 20%;
+    height: 12%;
     align-self: center;
     -unity-text-auto-size: none;
-    background-image: url("project://database/Assets/Art/UI/Tile/tile_0071.png?fileID=21300000&guid=d280f815f5da64bc7be7a80ff566c862&type=3#tile_0071");
-    -unity-slice-left: 6;
-    -unity-slice-top: 6;
-    -unity-slice-right: 6;
-    -unity-slice-bottom: 6;
+    background-image: url("project://database/Assets/Art/UI/Tile/tile_0010.png?fileID=21300000&guid=4355c2e3ad81a4152bc0a1e3ba0be59c&type=3#tile_0010");
+    -unity-slice-left: 5;
+    -unity-slice-top: 5;
+    -unity-slice-right: 5;
+    -unity-slice-bottom: 5;
     -unity-slice-scale: 6px;
     -unity-background-scale-mode: stretch-to-fill;
     background-color: rgba(0, 0, 0, 0);
@@ -59,23 +86,4 @@
     color: rgb(0, 0, 0);
     translate: 0 3px;
     -unity-background-image-tint-color: rgb(128, 128, 128);
-}
-
-.game-button:focus {
-    width: 40%;
-    height: 20%;
-    align-self: center;
-    -unity-text-auto-size: none;
-    background-image: url("project://database/Assets/Art/UI/Tile/tile_0070.png?fileID=21300000&guid=98c07f190da4649e39e10a8ccf91282a&type=3#tile_0070");
-    -unity-slice-left: 6;
-    -unity-slice-top: 6;
-    -unity-slice-right: 6;
-    -unity-slice-bottom: 6;
-    -unity-slice-scale: 6px;
-    -unity-background-scale-mode: stretch-to-fill;
-    background-color: rgba(0, 0, 0, 0);
-    -unity-font-definition: url("project://database/Assets/Art/Font/fusion-pixel-12px-proportional-zh_hans.ttf?fileID=12800000&guid=752236bd266a449b584b9b281e06b877&type=3#fusion-pixel-12px-proportional-zh_hans");
-    font-size: 40px;
-    -unity-font-style: normal;
-    color: rgb(255, 255, 255);
 }
