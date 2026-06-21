@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b9bef347a214403997328bc6e1d131, type: 3}
+  m_Name: Rhiannon
+  m_EditorClassIdentifier: Assembly-CSharp::Scriptable_objects.Character
+  characterName: Rhiannon
+  description: 
+  sprite: {fileID: -5822136517719472275, guid: e2c2780adf68341c7b6bbbc9b8f23014, type: 3}
