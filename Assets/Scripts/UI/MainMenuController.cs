@@ -25,9 +25,9 @@ namespace UI
             var settingsButton = root.Q<Button>("settings-button");
             var exitButton = root.Q<Button>("exit-button");
             mainButton?.Focus();
-            if (mainButton != null && startButtonTargetScene != "") mainButton.clicked += MainButtonClick;
-            if (settingsButton != null && settingButtonTargetScene != "") settingsButton.clicked += SettingButtonClick;
-            if (exitButton != null) exitButton.clicked += ExitGame;
+            // if (mainButton != null && startButtonTargetScene != "") mainButton.clicked += MainButtonClick;
+            // if (settingsButton != null && settingButtonTargetScene != "") settingsButton.clicked += SettingButtonClick;
+            // if (exitButton != null) exitButton.clicked += ExitGame;
         }
 
         private void LoadNextScene(string sceneName)

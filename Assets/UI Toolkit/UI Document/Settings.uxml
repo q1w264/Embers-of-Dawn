@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Button.uss?fileID=7433441132597879392&amp;guid=97f89b17f21444c85944d7b653d1cdfb&amp;type=3#Button"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Title.uss?fileID=7433441132597879392&amp;guid=c851bcac649564a51ad8f731d43eb8af&amp;type=3#Title"/>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(245, 222, 179);">
+        <ui:ScrollView>
+            <ui:Label text="Settings" class="game-title" style="font-size: 80px;"/>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
