@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Title.uss?fileID=7433441132597879392&amp;guid=c851bcac649564a51ad8f731d43eb8af&amp;type=3#Title"/>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(245, 222, 179); align-items: stretch; -unity-text-align: upper-center; justify-content: center;">
+        <ui:Label text="Loading..." class="game-title"/>
+        <ui:ProgressBar value="18.6" title=""/>
+    </ui:VisualElement>
+</ui:UXML>

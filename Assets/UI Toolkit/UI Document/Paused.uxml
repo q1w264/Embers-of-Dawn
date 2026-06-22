@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Title.uss?fileID=7433441132597879392&amp;guid=c851bcac649564a51ad8f731d43eb8af&amp;type=3#Title"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Button.uss?fileID=7433441132597879392&amp;guid=97f89b17f21444c85944d7b653d1cdfb&amp;type=3#Button"/>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(245, 222, 179, 0.596); justify-content: center;">
+        <ui:Label text="Game Paused" class="game-title" style="font-size: 238px; -unity-text-align: middle-center; border-bottom-width: 50px;"/>
+        <ui:Button text="Back to Game" class="game-button"/>
+        <ui:Button text="Settings..." class="game-button"/>
+        <ui:Button text="Save and Quit to Title" class="game-button"/>
+    </ui:VisualElement>
+</ui:UXML>
