@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace UI.SoundBehavior
 {
-    public abstract class SoundBehavior<T>
+    public abstract class SoundBehavior<T> : IUIBehavior<T>
     {
         protected SoundBehavior(AudioSource audioSource, AudioClip audioClip)
         {
