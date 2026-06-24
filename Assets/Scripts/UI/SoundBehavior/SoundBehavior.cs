@@ -1,17 +1,30 @@
-using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace UI.SoundBehavior
 {
-    public abstract class SoundBehavior
+    public abstract class SoundBehavior<T>
     {
-        protected static Action<T> GetSoundBehaviorHandler<T>(AudioSource audioSource,AudioClip audioClip)
+        protected SoundBehavior(AudioSource audioSource, AudioClip audioClip)
+        {
+            _audioSource = audioSource;
+            _audioClip = audioClip;
+        }
+        
+        private readonly AudioSource _audioSource;
+        private readonly AudioClip _audioClip;
+        
+        public abstract void Bind(T element);
+        
+        public abstract void Unbind(T element);
+        
+        protected EventCallback<TCtx> GetSoundBehaviorHandler<TCtx>()
         {
             return _ =>
             {
-                if (audioSource != null && audioClip != null)
+                if (_audioSource != null && _audioClip != null)
                 {
-                    audioSource.PlayOneShot(audioClip);
+                    _audioSource.PlayOneShot(_audioClip);
                 }
             };
         }

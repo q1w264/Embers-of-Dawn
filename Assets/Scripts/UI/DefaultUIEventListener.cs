@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UI.SoundBehavior;
 
 namespace UI
 {
@@ -7,9 +8,10 @@ namespace UI
     {
         public AudioSource audioSource;
         public AudioClip clickSound; // 比如 Kenney 的点击音效
-        
+        private ButtonsSoundBehavior _soundBehavior;//test
         private void Awake()
         {
+            _soundBehavior = new ButtonsSoundBehavior(audioSource, clickSound);
             // 1. 获取 UIDocument 组件
             var uiDocument = GetComponent<UIDocument>();
             if (uiDocument == null)
@@ -20,14 +22,13 @@ namespace UI
             // 2. 获取根节点
             var root = uiDocument.rootVisualElement;
             if (root == null) return;
-
+            
             // 3. 自动向下钻取，搜寻内部所有的 Button（会完美抓到你的 start-button 和 exit-button）
             var allButtons = root.Query<Button>().ToList();
             // 4. 遍历并绑定点击声音
             foreach (var btn in allButtons)
             {
-                btn.RegisterCallback<ClickEvent>(PlayClickAudio);
-                btn.RegisterCallback<NavigationSubmitEvent>(PlayClickAudio);
+                _soundBehavior.Bind(btn);
             }
         }
         
@@ -44,26 +45,25 @@ namespace UI
             var allButtons = root.Query<Button>().ToList();
             foreach (var btn in allButtons)
             {
-                btn.UnregisterCallback<ClickEvent>(PlayClickAudio);
-                btn.UnregisterCallback<NavigationSubmitEvent>(PlayClickAudio);
+                _soundBehavior.Unbind(btn);
             }
         }
 
         // 播放声音的监听回调
-        private void PlayClickAudio(ClickEvent evt)
-        {
-            if (audioSource != null && clickSound != null)
-            {
-                audioSource.PlayOneShot(clickSound);
-            }
-        }
-
-        private void PlayClickAudio(NavigationSubmitEvent evt)
-        {
-            if (audioSource != null && clickSound != null)
-            {
-                audioSource.PlayOneShot(clickSound);
-            }
-        }
+        // private void PlayClickAudio(ClickEvent evt)
+        // {
+        //     if (audioSource != null && clickSound != null)
+        //     {
+        //         audioSource.PlayOneShot(clickSound);
+        //     }
+        // }
+        //
+        // private void PlayClickAudio(NavigationSubmitEvent evt)
+        // {
+        //     if (audioSource != null && clickSound != null)
+        //     {
+        //         audioSource.PlayOneShot(clickSound);
+        //     }
+        // }
     }
 }
