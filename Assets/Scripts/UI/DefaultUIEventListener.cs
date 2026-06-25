@@ -8,10 +8,10 @@ namespace UI
     {
         public AudioSource audioSource;
         public AudioClip clickSound; // 比如 Kenney 的点击音效
-        private ButtonsSoundBehavior _soundBehavior;//test
+        private ButtonsSoundBehavior _baseSoundBehavior;//test
         private void Awake()
         {
-            _soundBehavior = new ButtonsSoundBehavior(audioSource, clickSound);
+            _baseSoundBehavior = new ButtonsSoundBehavior(audioSource, clickSound);
             // 1. 获取 UIDocument 组件
             var uiDocument = GetComponent<UIDocument>();
             if (uiDocument == null)
@@ -28,7 +28,7 @@ namespace UI
             // 4. 遍历并绑定点击声音
             foreach (var btn in allButtons)
             {
-                _soundBehavior.Bind(btn);
+                _baseSoundBehavior.Bind(btn);
             }
         }
         
@@ -45,7 +45,7 @@ namespace UI
             var allButtons = root.Query<Button>().ToList();
             foreach (var btn in allButtons)
             {
-                _soundBehavior.Unbind(btn);
+                _baseSoundBehavior.Unbind(btn);
             }
         }
 

@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace UI.SoundBehavior
 {
-    public class ButtonsSoundBehavior : SoundBehavior<Button>
+    public class ButtonsSoundBehavior : BaseSoundBehavior<Button>
     {
         private readonly EventCallback<ClickEvent> _clickEventHandler;
         private readonly EventCallback<NavigationSubmitEvent> _navigationSubmitEventHandler;
@@ -24,6 +24,24 @@ namespace UI.SoundBehavior
         {
             element.UnregisterCallback(_clickEventHandler);
             element.UnregisterCallback(_navigationSubmitEventHandler);
+        }
+
+        public override void Bind(VisualElement element)
+        {
+            var buttons = element.Query<Button>().ToList();
+            foreach (var button in buttons)
+            {
+                Bind(button);
+            }
+        }
+
+        public override void Unbind(VisualElement element)
+        {
+            var buttons = element.Query<Button>().ToList();
+            foreach (var button in buttons)
+            {
+                Unbind(button);
+            }
         }
     }
 }

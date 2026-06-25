@@ -3,9 +3,9 @@ using UnityEngine.UIElements;
 
 namespace UI.SoundBehavior
 {
-    public abstract class SoundBehavior<T> : IUIBehavior<T>
+    public abstract class BaseSoundBehavior<T> : IUIBehavior<T>
     {
-        protected SoundBehavior(AudioSource audioSource, AudioClip audioClip)
+        protected BaseSoundBehavior(AudioSource audioSource, AudioClip audioClip)
         {
             _audioSource = audioSource;
             _audioClip = audioClip;
@@ -17,6 +17,10 @@ namespace UI.SoundBehavior
         public abstract void Bind(T element);
         
         public abstract void Unbind(T element);
+        
+        public abstract void Bind(VisualElement element);
+        
+        public abstract void Unbind(VisualElement element);
         
         protected EventCallback<TCtx> GetSoundBehaviorHandler<TCtx>()
         {
