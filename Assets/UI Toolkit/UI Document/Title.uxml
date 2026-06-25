@@ -1,12 +1,24 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/StyleSheet/Button.uss?fileID=7433441132597879392&amp;guid=97f89b17f21444c85944d7b653d1cdfb&amp;type=3#Button"/>
-    <Style src="project://database/Assets/UI%20Toolkit/StyleSheet/Title.uss?fileID=7433441132597879392&amp;guid=c851bcac649564a51ad8f731d43eb8af&amp;type=3#Title"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Button.uss?fileID=7433441132597879392&amp;guid=97f89b17f21444c85944d7b653d1cdfb&amp;type=3#Button"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Title.uss?fileID=7433441132597879392&amp;guid=c851bcac649564a51ad8f731d43eb8af&amp;type=3#Title"/>
     <ui:VisualElement name="Root" style="flex-grow: 1;">
         <ui:VisualElement style="flex-grow: 1; align-self: stretch; justify-content: center; align-content: center; height: 95%; background-color: rgb(245, 222, 179);">
             <ui:Label text="Ember of Dawn" class="game-title" style="border-bottom-width: 120px; border-top-width: 0; border-right-width: 0; border-left-width: 0;"/>
-            <ui:Button text="Play" name="start-button" class="game-button"/>
-            <ui:Button text="Settings" name="settings-button" class="game-button"/>
-            <ui:Button text="Exit Game" name="exit-button" class="game-button"/>
+            <ui:Button text="Play" name="start-button" class="game-button">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:5fedb73a71e194f979672fee948b1c86" entry="Id(182740574208)"/>
+                </Bindings>
+            </ui:Button>
+            <ui:Button text="Settings" name="settings-button" class="game-button">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:5fedb73a71e194f979672fee948b1c86" entry="Id(554758561792)"/>
+                </Bindings>
+            </ui:Button>
+            <ui:Button text="Exit Game" name="exit-button" class="game-button">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:5fedb73a71e194f979672fee948b1c86" entry="Id(625583579136)"/>
+                </Bindings>
+            </ui:Button>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; background-color: rgb(26, 26, 26); flex-direction: row; height: 5%;">
             <ui:Label text="Version 0.0.1" style="color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/Art/Font/fusion-pixel-12px-proportional-zh_hans.ttf?fileID=12800000&amp;guid=752236bd266a449b584b9b281e06b877&amp;type=3#fusion-pixel-12px-proportional-zh_hans&quot;); font-size: 37px; -unity-text-align: upper-center; white-space: nowrap;"/>
