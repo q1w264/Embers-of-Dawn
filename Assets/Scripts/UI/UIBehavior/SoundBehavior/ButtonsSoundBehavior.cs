@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UI.SoundBehavior
+namespace UI.UIBehavior.SoundBehavior
 {
     public class ButtonsSoundBehavior : BaseSoundBehavior<Button>
     {

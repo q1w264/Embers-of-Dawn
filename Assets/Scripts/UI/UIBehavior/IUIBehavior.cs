@@ -1,4 +1,4 @@
-namespace UI
+namespace UI.UIBehavior
 {
     public interface IUIBehavior<in T>
     {

@@ -7,9 +7,11 @@ namespace UI.UIController
     public abstract class BaseUIController : MonoBehaviour
     {
         private UIDocument _document;
-        private VisualElement Root { get; set; }
+        protected VisualElement Root { get; private set; }
 
-        private void Awake()
+        private VisualElement FirstFocusedElement { get; set; }
+
+        protected virtual void Awake()
         {
             _document = GetComponent<UIDocument>();
             Root = _document.rootVisualElement;
@@ -17,20 +19,33 @@ namespace UI.UIController
             Close();
         }
         
-        public virtual void Open()
+        public void Open()
         {
+            FocusFirst();
             if (Root != null)
             {
                 Root.style.display = DisplayStyle.Flex;
             }
         }
         
-        public virtual void Close()
+        public void Close()
         {
             if (Root != null)
             {
                 Root.style.display = DisplayStyle.None;
             }
         }
+
+        private void FocusFirst()
+        {
+            FirstFocusedElement?.Focus();
+        }
+
+        public void FocusFirst(VisualElement element)
+        {
+            FirstFocusedElement = element;
+            FocusFirst();
+        }
+
     }
 }

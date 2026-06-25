@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UI.SoundBehavior
+namespace UI.UIBehavior.SoundBehavior
 {
     public abstract class BaseSoundBehavior<T> : IUIBehavior<T>
     {
