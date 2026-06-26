@@ -4,9 +4,9 @@ using UnityEngine;
 namespace UI.UIController
 {
     public class SoundedUIController : BaseUIController
-    {   
-        [Header("Sound Behavior")] 
-        [SerializeField]private AudioSource audioSource;
+    {
+        [field: Header("Sound Behavior")]
+        [field: SerializeField]private AudioSource AudioSource { get; set; }
         [SerializeField]private Scriptable_objects.UIElementAudioConfig audioConfig;
         
         private ButtonsSoundBehavior _buttonsSoundBehavior;
@@ -14,7 +14,7 @@ namespace UI.UIController
         protected override void Awake()
         {
             base.Awake();
-            _buttonsSoundBehavior = new ButtonsSoundBehavior(audioSource, audioConfig.buttonClickSound);
+            _buttonsSoundBehavior = new ButtonsSoundBehavior(AudioSource, audioConfig.buttonClickSound);
         }
 
         protected virtual void OnEnable()

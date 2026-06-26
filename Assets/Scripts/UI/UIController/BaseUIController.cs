@@ -41,7 +41,7 @@ namespace UI.UIController
             FirstFocusedElement?.Focus();
         }
 
-        public void FocusFirst(VisualElement element)
+        protected void FocusFirst(VisualElement element)
         {
             FirstFocusedElement = element;
             FocusFirst();
