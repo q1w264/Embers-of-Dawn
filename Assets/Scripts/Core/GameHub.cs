@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Utility;
 
 namespace Core
 {
-    public class GameHub : MonoBehaviour
+    public class GameHub : PersistentSingleton<GameHub>
     {
         private GameState _gameState;
 
@@ -19,9 +22,7 @@ namespace Core
             }
             remove => _onGameStateChanged -= value;
         }
-
-        private static GameHub Instance { get; set; }
-
+        
         public static GameHub Get
         {
             get
@@ -29,7 +30,6 @@ namespace Core
                 if (Instance != null) return Instance;
                 var target = new GameObject("[GameHub]");
                 Instance = target.AddComponent<GameHub>();
-                DontDestroyOnLoad(target);
                 return Instance;
             }
         }
@@ -40,7 +40,7 @@ namespace Core
             _gameState = newState;
             Time.timeScale = newState switch
             {
-                GameState.Paused or GameState.Ended or GameState.Title => 0f,
+                GameState.Paused or GameState.Ended or GameState.Title or GameState.Loading => 0f,
                 GameState.Playing => 1f,
                 _ => throw new ArgumentOutOfRangeException(nameof(newState), newState, null)
             };
@@ -54,6 +54,7 @@ namespace Core
         Title,
         Playing,
         Paused,
+        Loading,
         Ended
     }
 }
