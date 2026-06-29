@@ -13,8 +13,11 @@ namespace Core
             _uiStack = new Stack<BaseUIController>();
             foreach (var controller in uiControllers)
             {
-                if(controller.gameObject)
+                if (controller.gameObject)
+                {
                     _uiDict[controller.name] = controller;
+                    controller.UIManager = this;
+                }
             }
         }
 
@@ -24,7 +27,7 @@ namespace Core
             if (!_uiDict.TryGetValue(uiName, out var controller)) return;
             PushAndOpenUI(controller);
         }
-
+        
         public void CloseLast()
         {
             if (_uiStack.Count <= 0) return;
@@ -32,7 +35,6 @@ namespace Core
             controller.Close();
             if (_uiStack.Count <= 0) return;
             _uiStack.Peek().Open();
-            _uiStack.Peek().gameObject.SetActive(true);
         }
 
         public void CloseAll()

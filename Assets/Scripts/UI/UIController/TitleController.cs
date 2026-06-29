@@ -1,6 +1,7 @@
 using Scene;
 using UI.UIBehavior.ChangeGameSceneBehavior;
 using UI.UIBehavior.ExitGameBehavior;
+using UI.UIBehavior.OpenUIBehavior;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,6 +19,7 @@ namespace UI.UIController
 
         private readonly ButtonExitGameBehavior _buttonExitGameBehavior = new();
         private ButtonChangGameSceneBehavior _startButtonChangGameSceneBehavior;
+        private ButtonOpenUIBehavior  _settingsButtonOpenUIBehavior;
 
         private void Start()
         {
@@ -27,15 +29,18 @@ namespace UI.UIController
             FocusFirst(_startButton);
 
             _startButtonChangGameSceneBehavior = new ButtonChangGameSceneBehavior(levelManager, "Game");
-
+            _settingsButtonOpenUIBehavior = new ButtonOpenUIBehavior(UIManager, "Settings");
+            
             _buttonExitGameBehavior.Bind(_exitButton);
             _startButtonChangGameSceneBehavior.Bind(_startButton);
+            _settingsButtonOpenUIBehavior.Bind(_settingsButton);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             _buttonExitGameBehavior.Unbind(_exitButton);
             _startButtonChangGameSceneBehavior.Unbind(_startButton);
+            _settingsButtonOpenUIBehavior.Unbind(_settingsButton);
         }
     }
 }
