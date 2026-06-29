@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,9 @@ namespace UI.UIController
     {
         private UIDocument _document;
         protected VisualElement Root { get; private set; }
+
+        public UIManager UIManager { get; set; }
+        public bool IsOpen { get; private set; }
 
         private VisualElement FirstFocusedElement { get; set; }
 
@@ -21,6 +25,7 @@ namespace UI.UIController
         
         public void Open()
         {
+            IsOpen = true;
             FocusFirst();
             if (Root != null)
             {
@@ -30,6 +35,7 @@ namespace UI.UIController
         
         public void Close()
         {
+            IsOpen = false;
             if (Root != null)
             {
                 Root.style.display = DisplayStyle.None;

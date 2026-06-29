@@ -27,5 +27,9 @@ namespace UI.UIController
             _buttonsSoundBehavior?.Unbind(Root);
         }
 
+        protected virtual void OnDestroy()
+        {
+            _buttonsSoundBehavior?.Unbind(Root);
+        }
     }
 }
