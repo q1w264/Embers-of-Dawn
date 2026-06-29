@@ -32,13 +32,21 @@ namespace Scene
             StartCoroutine(LoadSceneAsyncRoutine(sceneName));
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator LoadSceneAsyncRoutine(string sceneName)
         {
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-
+            var operation = SceneManager.LoadSceneAsync(sceneName);
+            
+            if(operation == null)
+                Debug.LogError($"Could not load scene '{sceneName}'. No scene loaded.");
+            
+            if (operation == null) yield break;
+            // operation.allowSceneActivation = false;
+            
+            _uiManager.Open("Loading");
+            
             while (operation is { isDone: false })
             {
-                _uiManager.Open("Loading");
                 yield return null;
             }
         }
