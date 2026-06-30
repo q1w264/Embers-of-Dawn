@@ -13,7 +13,7 @@ namespace Core
             _uiStack = new Stack<BaseUIController>();
             foreach (var controller in uiControllers)
             {
-                if (controller!=null && controller.gameObject != null)
+                if (controller != null && controller.gameObject != null)
                 {
                     _uiDict[controller.name] = controller;
                     controller.UIManager = this;
