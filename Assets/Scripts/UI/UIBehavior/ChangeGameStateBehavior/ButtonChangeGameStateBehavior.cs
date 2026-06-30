@@ -9,6 +9,7 @@ namespace UI.UIBehavior.ChangeGameStateBehavior
 
         public ButtonChangeGameStateBehavior(Action action)
         {
+            ArgumentNullException.ThrowIfNull(action);
             _action = action;
             NavigationSubmitEventHandler = GetBehaviorHandler<NavigationSubmitEvent>();
             ClickEventHandler = GetBehaviorHandler<ClickEvent>();
