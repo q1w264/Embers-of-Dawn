@@ -2,6 +2,10 @@ using UnityEngine.UIElements;
 
 namespace UI.UIBehavior
 {
+    /// <summary>
+    /// Base class for behaviors that can bind to typed elements or to element trees.
+    /// </summary>
+    /// <typeparam name="TElement">Target visual element type.</typeparam>
     public abstract class BaseUIBehavior<TElement> : IUIBehavior<TElement> where TElement : VisualElement
     {
         public abstract void Bind(TElement element);

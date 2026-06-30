@@ -2,6 +2,9 @@ using Input;
 
 namespace UI.UIController
 {
+    /// <summary>
+    /// Controller for settings panel, including cancel-to-close handling.
+    /// </summary>
     public class SettingsUIController : SoundedUIController
     {
         private GameInputSystem  _gameInputSystem;

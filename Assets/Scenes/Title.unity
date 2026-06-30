@@ -270,7 +270,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: f3c9fd9d44ce44720a7926d821cf081e, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 16ad1e1d0964b43b1ab2342080fb5354, type: 3}
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -308,6 +308,7 @@ MonoBehaviour:
   <AudioSource>k__BackingField: {fileID: 1591893696}
   audioConfig: {fileID: 11400000, guid: 94810c0cde9294d97be442387086737e, type: 2}
   levelManager: {fileID: 674352944}
+  targetGameScene: Game
 --- !u!1 &890996889
 GameObject:
   m_ObjectHideFlags: 0

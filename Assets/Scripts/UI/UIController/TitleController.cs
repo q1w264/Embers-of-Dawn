@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 namespace UI.UIController
 {
+    /// <summary>
+    /// Controller for title menu actions (start, settings, exit).
+    /// </summary>
     public class TitleController : SoundedUIController
     {
         private Button _startButton;

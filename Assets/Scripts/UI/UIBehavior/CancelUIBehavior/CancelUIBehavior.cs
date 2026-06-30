@@ -5,12 +5,20 @@ using UnityEngine.UIElements;
 
 namespace UI.UIBehavior.CancelUIBehavior
 {
+    /// <summary>
+    /// Deprecated behavior for handling navigation-cancel and closing top UI.
+    /// </summary>
+    /// <typeparam name="TUIElement">Element type that receives cancel callback.</typeparam>
     [Obsolete("CancelUIBehavior is deprecated. Use GameInputSystem.UI.Cancel.WasPressedThisFrame instead.")]
     public sealed class CancelUIBehavior<TUIElement> : BaseUIBehavior<TUIElement> where TUIElement : VisualElement
     {
         private readonly UIManager _uiManager;
         private readonly EventCallback<NavigationCancelEvent> _eventCallback;
 
+        /// <summary>
+        /// Creates a cancel behavior bound to a UI manager stack.
+        /// </summary>
+        /// <param name="uiManager">UI stack manager.</param>
         public CancelUIBehavior(UIManager uiManager)
         {
             _uiManager = uiManager;

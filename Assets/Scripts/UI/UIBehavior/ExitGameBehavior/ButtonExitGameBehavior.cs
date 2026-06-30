@@ -3,6 +3,9 @@ using Utility;
 
 namespace UI.UIBehavior.ExitGameBehavior
 {
+    /// <summary>
+    /// Button behavior that exits play mode or application.
+    /// </summary>
     public sealed class ButtonExitGameBehavior : BaseButtonUIBehavior
     {
         public ButtonExitGameBehavior()

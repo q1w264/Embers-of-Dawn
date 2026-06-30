@@ -4,34 +4,43 @@ using Core;
 using UI.UIController;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Utility;
 
 namespace Scene
 {
-    public class LevelManager : Singleton<LevelManager>
+    /// <summary>
+    /// Base scene flow manager responsible for initial game state and scene transitions.
+    /// </summary>
+    public class LevelManager : MonoBehaviour
     {
         [SerializeField] private GameState targetGameState;
         [SerializeField] private List<BaseUIController> uiControllers;
         [SerializeField] private string firstOpenedUI;
-        private UIManager _uiManager;
+        protected UIManager UIManager;
+        private bool _isSceneLoading;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
-            _uiManager = new UIManager(uiControllers);
+            UIManager = new UIManager(uiControllers);
             GameHub.Get.ChangeGameState(targetGameState);
         }
-
-        private void Start()
+        
+        protected virtual void Start()
         {
-            _uiManager.Open(firstOpenedUI);
+            if (!string.IsNullOrEmpty(firstOpenedUI))
+                UIManager.Open(firstOpenedUI);
         }
 
+        /// <summary>
+        /// Loads a new scene asynchronously and shows loading UI.
+        /// </summary>
+        /// <param name="sceneName">Target scene name.</param>
         public void GoToScene(string sceneName)
         {
+            if (_isSceneLoading) return;
+            _isSceneLoading = true;
             StartCoroutine(LoadSceneAsyncRoutine(sceneName));
         }
-
+        
         // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator LoadSceneAsyncRoutine(string sceneName)
         {
@@ -40,10 +49,14 @@ namespace Scene
             if(operation == null)
                 Debug.LogError($"Could not load scene '{sceneName}'. No scene loaded.");
             
-            if (operation == null) yield break;
+            if (operation == null)
+            {
+                _isSceneLoading = false;
+                yield break;
+            }
             // operation.allowSceneActivation = false;
             
-            _uiManager.Open("Loading");
+            UIManager.Open("Loading");
             
             while (operation is { isDone: false })
             {
