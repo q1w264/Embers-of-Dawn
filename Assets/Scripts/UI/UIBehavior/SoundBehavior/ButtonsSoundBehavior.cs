@@ -3,10 +3,19 @@ using UnityEngine.UIElements;
 
 namespace UI.UIBehavior.SoundBehavior
 {
+    /// <summary>
+    /// Sound behavior implementation for UI Toolkit buttons.
+    /// </summary>
     public class ButtonsSoundBehavior : BaseSoundBehavior<Button>
     {
         private readonly EventCallback<ClickEvent> _clickEventHandler;
         private readonly EventCallback<NavigationSubmitEvent> _navigationSubmitEventHandler;
+
+        /// <summary>
+        /// Creates button sound callbacks for click and submit input.
+        /// </summary>
+        /// <param name="audioSource">Playback source.</param>
+        /// <param name="audioClip">Clip to play per interaction.</param>
         public ButtonsSoundBehavior(AudioSource audioSource, AudioClip audioClip) : base(
             audioSource, audioClip)
         {

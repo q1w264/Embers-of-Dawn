@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace UI.UIController
 {
+    /// <summary>
+    /// Base UI controller that adds click/submit sound behavior for buttons.
+    /// </summary>
     public class SoundedUIController : BaseUIController
     {
         [field: Header("Sound Behavior")]

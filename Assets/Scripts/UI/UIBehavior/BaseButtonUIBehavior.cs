@@ -1,11 +1,16 @@
 using UnityEngine.UIElements;
+using UnityEngine;
 
 namespace UI.UIBehavior
 {
+    /// <summary>
+    /// Base behavior for button interaction through click and submit events.
+    /// </summary>
     public abstract class BaseButtonUIBehavior : BaseUIBehavior<Button>
     {
         protected EventCallback<ClickEvent> ClickEventHandler { get; set; }
         protected EventCallback<NavigationSubmitEvent> NavigationSubmitEventHandler { get; set; }
+        private int _lastBehaviorFrame = -1;
 
         public override void Bind(Button element)
         {
@@ -21,7 +26,13 @@ namespace UI.UIBehavior
         
         protected override EventCallback<TCtx> GetBehaviorHandler<TCtx>()
         {
-            return _ => Behavior();
+            return _ =>
+            {
+                var currentFrame = Time.frameCount;
+                if (_lastBehaviorFrame == currentFrame) return;
+                _lastBehaviorFrame = currentFrame;
+                Behavior();
+            };
         }
 
         protected abstract void Behavior();
