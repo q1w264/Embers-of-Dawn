@@ -12,14 +12,16 @@ namespace UI.UIController
         private Button _startButton;
         private Button _settingsButton;
         private Button _exitButton;
-        //TODO UIBehavior 完成: ButtonChangeGameStateBehavior.
+
+        [Header("Level Manager")] [SerializeField]
+        private LevelManager levelManager;
         
-        [Header("Level Manager")]
-        [SerializeField] private LevelManager levelManager;
+        [Header("Game Scene")] [SerializeField]
+        private string targetGameScene = "Game";
 
         private readonly ButtonExitGameBehavior _buttonExitGameBehavior = new();
-        private ButtonChangGameSceneBehavior _startButtonChangGameSceneBehavior;
-        private ButtonOpenUIBehavior  _settingsButtonOpenUIBehavior;
+        private ButtonChangeGameSceneBehavior _startButtonChangeGameSceneBehavior;
+        private ButtonOpenUIBehavior _settingsButtonOpenUIBehavior;
 
         private void Start()
         {
@@ -28,19 +30,30 @@ namespace UI.UIController
             _exitButton = Root.Q<Button>("exit-button");
             FocusFirst(_startButton);
 
-            _startButtonChangGameSceneBehavior = new ButtonChangGameSceneBehavior(levelManager, "Game");
+            _startButtonChangeGameSceneBehavior = new ButtonChangeGameSceneBehavior(levelManager, targetGameScene);
             _settingsButtonOpenUIBehavior = new ButtonOpenUIBehavior(UIManager, "Settings");
-            
+
             _buttonExitGameBehavior.Bind(_exitButton);
-            _startButtonChangGameSceneBehavior.Bind(_startButton);
+            _startButtonChangeGameSceneBehavior.Bind(_startButton);
             _settingsButtonOpenUIBehavior.Bind(_settingsButton);
         }
 
         protected override void OnDestroy()
         {
-            _buttonExitGameBehavior.Unbind(_exitButton);
-            _startButtonChangGameSceneBehavior.Unbind(_startButton);
-            _settingsButtonOpenUIBehavior.Unbind(_settingsButton);
+            base.OnDestroy();
+            if (_exitButton != null)
+            {
+                _buttonExitGameBehavior.Unbind(_exitButton);
+            }
+
+            if (_startButton != null)
+            {
+                _startButtonChangeGameSceneBehavior.Unbind(_startButton);
+            }
+            if (_settingsButton != null)
+            {
+                _settingsButtonOpenUIBehavior.Unbind(_settingsButton);
+            }
         }
     }
 }

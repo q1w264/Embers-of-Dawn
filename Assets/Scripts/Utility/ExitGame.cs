@@ -1,6 +1,9 @@
+// ReSharper disable once RedundantUsingDirective
+using UnityEngine;
+
 namespace Utility
 {
-    public class ExitGame
+    public static class ExitGame
     {
         public static void Exit()
         {
