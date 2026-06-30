@@ -26,6 +26,12 @@ namespace UI.UIController
             _uiActions.Disable();
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _gameInputSystem?.Dispose();
+        }
+
         private void Update()
         {
             if (!IsOpen) return;
